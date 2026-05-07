@@ -143,7 +143,8 @@
         .wishlist-link:hover { background: var(--olive); color: var(--white); }
         .reserve-btn { padding: 5px 12px; background: rgba(107,123,95,0.1); border: 1px solid var(--olive); border-radius: 18px; color: var(--olive); font-size: 0.72rem; cursor: pointer; transition: all 0.25s var(--ease-apple); white-space: nowrap; font-weight: 500; }
         .reserve-btn:hover { background: var(--olive); color: var(--white); }
-        .reserve-btn.reserved { background: var(--brown); border-color: var(--brown); color: var(--white); cursor: not-allowed; }
+        .reserve-btn.reserved { background: var(--brown); border-color: var(--brown); color: var(--white); }
+        .reserve-btn.server-reserved { cursor: not-allowed; opacity: 0.65; }
         .wishlist-note { text-align: center; margin-top: 45px; font-size: 0.88rem; color: var(--brown); font-style: italic; padding: 26px; background: rgba(245,242,237,0.6); border-radius: 18px; max-width: 680px; margin-left: auto; margin-right: auto; border: 1px solid rgba(139,115,85,0.1); line-height: 1.75; }
 
         /* ===== RSVP / АНКЕТА ===== */
@@ -288,7 +289,9 @@
         class WeddingEngine {
             constructor() {
                 this.rafId = null; this.isTouch = window.matchMedia('(pointer: coarse)').matches;
-                this.guestCount = 1; this.lastActiveSection = ''; this.init();
+                this.guestCount = 1; this.lastActiveSection = '';
+                this.sessionReservations = new Set();
+                this.init();
             }
             init() {
                 this.initNav(); this.initNavTheme(); this.initReveal(); this.initCountdown();
@@ -316,8 +319,39 @@
                 });
             }
             async initWishlistSync() {
-                try { const res = await fetch(`${API_URL}?action=reservations`); if (!res.ok) return; const data = await res.json(); const reserved = new Set(data.reserved || []); document.querySelectorAll('.reserve-btn').forEach(btn => { if (reserved.has(btn.dataset.item)) { btn.classList.add('reserved'); btn.textContent = 'Забронировано'; btn.disabled = true; } }); } catch (e) { console.warn('Wishlist sync failed:', e); }
-                document.querySelectorAll('.reserve-btn').forEach(btn => { btn.addEventListener('click', async function() { if (this.disabled) return; const item = this.dataset.item; try { await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'reserve', item, timestamp: new Date().toISOString() }) }); } catch(e) {} const msg = encodeURIComponent(`Привет! Я хочу подарить вам "${item}" со свадебного вишлиста. Это ещё свободно?`); window.open(`https://t.me/+YuLqqADXO404ODIy?text=${msg}`, '_blank'); this.classList.add('reserved'); this.textContent = 'Забронировано'; this.disabled = true; this.showToast(`Вы забронировали: ${item}`); }); });
+                const engine = this;
+                try {
+                    const res = await fetch(`${API_URL}?action=reservations`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        const reserved = new Set(data.reserved || []);
+                        document.querySelectorAll('.reserve-btn').forEach(btn => {
+                            if (reserved.has(btn.dataset.item)) {
+                                btn.classList.add('reserved', 'server-reserved');
+                                btn.textContent = 'Забронировано';
+                                btn.disabled = true;
+                            }
+                        });
+                    }
+                } catch (e) { console.warn('Wishlist sync failed:', e); }
+
+                document.querySelectorAll('.reserve-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (this.classList.contains('server-reserved')) return;
+                        const item = this.dataset.item;
+                        if (this.classList.contains('reserved')) {
+                            this.classList.remove('reserved');
+                            this.textContent = 'Забронировать';
+                            engine.sessionReservations.delete(item);
+                            engine.showToast(`Бронь "${item}" отменена`);
+                        } else {
+                            this.classList.add('reserved');
+                            this.textContent = 'Забронировано';
+                            engine.sessionReservations.add(item);
+                            engine.showToast(`Вы забронировали: ${item}`);
+                        }
+                    });
+                });
             }
             initTelegramToggle() { const cb = document.getElementById('tgLinked'); const grp = document.getElementById('tgFieldGroup'); if (cb && grp) cb.addEventListener('change', function() { const inp = grp.querySelector('input'); if (this.checked) { grp.style.transition = 'all 0.3s var(--ease-apple)'; grp.style.opacity = '0.2'; grp.style.pointerEvents = 'none'; inp.required = false; inp.value = ''; } else { grp.style.opacity = '1'; grp.style.pointerEvents = 'auto'; } }); }
             initAttendanceToggle() { const radios = document.querySelectorAll('input[name="attendance"]'); const cond = document.getElementById('conditionalFields'); if (!cond) return; const toggle = (yes) => { if (yes) { cond.classList.remove('hidden'); cond.querySelectorAll('input, textarea').forEach(el => { if (el.dataset.wasReq) el.required = true; }); } else { cond.classList.add('hidden'); cond.querySelectorAll('input[required], textarea[required]').forEach(el => { el.dataset.wasReq = 'true'; el.required = false; }); document.getElementById('g1').checked = true; this.guestCount = 1; document.getElementById('guestPreferencesContainer').innerHTML = ''; } }; radios.forEach(r => r.addEventListener('change', (e) => toggle(e.target.value === 'yes'))); }
@@ -336,7 +370,35 @@
             }
             initFormSubmission() {
                 const form = document.getElementById('rsvpForm'); const btn = document.getElementById('submitBtn'); const success = document.getElementById('successMessage');
-                form.addEventListener('submit', async (e) => { e.preventDefault(); btn.disabled = true; btn.textContent = 'Отправка...'; const data = Object.fromEntries(new FormData(form).entries()); try { await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'rsvp', ...data, timestamp: new Date().toISOString() }) }); form.style.transition = 'all 0.4s var(--ease-apple)'; form.style.opacity = '0'; form.style.transform = 'translateY(-15px)'; setTimeout(() => { form.style.display = 'none'; success.classList.add('show'); this.showToast('Ваш ответ отправлен. Спасибо!'); }, 400); } catch (err) { btn.disabled = false; btn.textContent = 'Отправить ответ'; this.showToast('Ошибка отправки. Попробуйте позже или напишите нам в Telegram.'); console.error(err); } });
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault(); btn.disabled = true; btn.textContent = 'Отправка...';
+                    const formData = new FormData(form);
+                    const data = {};
+                    for (let [key, value] of formData.entries()) data[key] = value;
+
+                    const count = parseInt(data.guests) || 1;
+                    const payload = { action: 'rsvp', timestamp: new Date().toISOString() };
+                    ['names', 'attendance', 'guests', 'accommodation', 'phone', 'telegram', 'comments'].forEach(k => { if(data[k] !== undefined) payload[k] = data[k]; });
+
+                    payload.guest_1_drinks = data.guest_1_drinks || '';
+                    payload.guest_1_alcohol = data.guest_1_alcohol === 'on' ? 'yes' : 'no';
+
+                    for(let i=2; i<=4; i++) {
+                        if(i <= count) {
+                            payload[`guest_${i}_name`] = data[`guest_${i}_name`] || '';
+                            payload[`guest_${i}_drinks`] = data[`guest_${i}_drinks`] || '';
+                            payload[`guest_${i}_alcohol`] = data[`guest_${i}_alcohol`] === 'on' ? 'yes' : 'no';
+                        }
+                    }
+
+                    payload.reservations = Array.from(this.sessionReservations);
+
+                    try {
+                        await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
+                        form.style.transition = 'all 0.4s var(--ease-apple)'; form.style.opacity = '0'; form.style.transform = 'translateY(-15px)';
+                        setTimeout(() => { form.style.display = 'none'; success.classList.add('show'); this.showToast('Ваш ответ отправлен. Спасибо!'); }, 400);
+                    } catch (err) { btn.disabled = false; btn.textContent = 'Отправить ответ'; this.showToast('Ошибка отправки. Попробуйте позже или напишите нам в Telegram.'); console.error(err); }
+                });
             }
             showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
         }
