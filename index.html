@@ -17,18 +17,14 @@
         html { scroll-behavior: smooth; scroll-padding-top: 100px; }
         body { font-family: 'Montserrat', sans-serif; color: var(--dark-brown); background: var(--off-white); overflow-x: hidden; line-height: 1.6; position: relative; }
 
-        /* ===== OPTIMIZED BACKGROUND ===== */
         .bg-gradient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
         .gradient-blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.45; will-change: transform; animation: blobFloat 28s ease-in-out infinite; }
         .blob-1 { width: 900px; height: 900px; background: radial-gradient(circle, rgba(184,196,176,0.6) 0%, transparent 70%); top: -20%; right: -10%; }
         .blob-2 { width: 750px; height: 750px; background: radial-gradient(circle, rgba(212,196,176,0.5) 0%, transparent 70%); bottom: -15%; left: -15%; animation-delay: -7s; }
         .blob-3 { width: 650px; height: 650px; background: radial-gradient(circle, rgba(107,123,95,0.5) 0%, transparent 70%); top: 40%; left: 20%; animation: blobFloat 32s ease-in-out infinite reverse; animation-delay: -14s; }
         @keyframes blobFloat { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(40px,-50px) scale(1.08)} 66%{transform:translate(-35px,40px) scale(0.92)} }
-
-        .mouse-gradient { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(107,123,95,0.25) 0%, transparent 70%); filter: blur(80px); pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: opacity 0.4s ease; opacity: 0; }
         .noise-overlay { position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
 
-        /* ===== OPTIMIZED GLASSMORPHISM ===== */
         .glass-card {
             background: var(--glass-bg); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4);
             border: 1px solid var(--glass-border); border-radius: 26px; box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.5);
@@ -38,7 +34,6 @@
         .glass-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%); border-radius: 26px 26px 0 0; pointer-events: none; }
         .glass-card:hover { transform: translateY(-5px) scale(1.005); box-shadow: 0 20px 40px rgba(31,38,135,0.14), inset 0 1px 0 rgba(255,255,255,0.6); }
 
-        /* ===== NAVIGATION ===== */
         .nav { position: fixed; top: 18px; left: 50%; transform: translateX(-50%) translateY(-140%); padding: 9px 12px; display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; z-index: 1000; background: rgba(255,255,255,0.12); backdrop-filter: blur(24px) saturate(1.6); -webkit-backdrop-filter: blur(24px) saturate(1.6); border: 1px solid rgba(255,255,255,0.3); border-radius: 40px; box-shadow: 0 8px 24px rgba(0,0,0,0.06), inset 0 1px 1px rgba(255,255,255,0.5); transition: transform 0.5s var(--ease-out-expo), background 0.3s ease, border-color 0.3s ease; max-width: 92vw; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; scroll-snap-type: x proximity; }
         .nav::-webkit-scrollbar { display: none; }
         .nav.visible { transform: translateX(-50%) translateY(0); }
@@ -49,7 +44,6 @@
         .nav.nav-over-dark a { color: rgba(255,255,255,0.85); }
         .nav.nav-over-dark a.active { color: var(--light-sage); background: rgba(184,196,176,0.18); }
 
-        /* ===== HERO ===== */
         .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 30px 20px; z-index: 2; }
         .hero-card { max-width: 700px; width: 100%; padding: 38px 36px 55px; text-align: center; position: relative; z-index: 2; }
         .hero-badge { display: inline-block; padding: 7px 20px; background: rgba(107,123,95,0.14); border: 1px solid rgba(107,123,95,0.28); border-radius: 28px; font-size: 0.72rem; letter-spacing: 3.5px; text-transform: uppercase; color: var(--olive); margin-bottom: 14px; margin-top: -8px; font-weight: 600; }
@@ -59,7 +53,6 @@
         .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2.4vw, 1.35rem); font-weight: 300; font-style: italic; color: var(--dark-brown); margin-bottom: 10px; line-height: 1.65; }
         .hero-location { display: block; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.4vw, 1.4rem); font-weight: 400; font-style: italic; color: var(--dark-brown); margin-top: 6px; }
 
-        /* ===== SECTIONS ===== */
         section { padding: 110px 20px; position: relative; z-index: 2; }
         .container { max-width: 1150px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 60px; }
@@ -67,7 +60,6 @@
         .section-title .ornament { color: var(--olive); font-size: 1.4rem; display: block; margin-bottom: 8px; letter-spacing: 6px; }
         .section-title p { font-size: 0.82rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--brown); font-weight: 500; }
 
-        /* ===== COUNTDOWN ===== */
         .countdown-section { background: linear-gradient(135deg, var(--black) 0%, var(--dark-brown) 100%); color: var(--white); text-align: center; overflow: hidden; }
         .countdown-section .section-title h2 { color: var(--white); }
         .countdown-section .section-title p { color: var(--beige); }
@@ -79,7 +71,6 @@
         .countdown-separator { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--olive); opacity: 0.4; animation: pulseSep 2s ease-in-out infinite; }
         @keyframes pulseSep { 0%,100%{opacity:0.25} 50%{opacity:0.6} }
 
-        /* ===== DRESSCODE ===== */
         .dresscode-section { background: var(--white); }
         .dresscode-content { max-width: 820px; margin: 0 auto; }
         .dresscode-intro { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--dark-brown); line-height: 1.9; margin-bottom: 45px; }
@@ -97,7 +88,6 @@
         .dresscode-notes ul li::before { content: '✦'; position: absolute; left: 0; top: 2px; color: var(--olive); font-size: 0.75rem; }
         .dresscode-notes ul li strong { color: var(--black); font-weight: 600; }
 
-        /* ===== DETAILS ===== */
         .details-section { background: linear-gradient(135deg, var(--off-white) 0%, var(--cream) 100%); }
         .details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
         .detail-card { padding: 40px 28px; text-align: center; }
@@ -108,30 +98,17 @@
         .detail-card p { font-size: 0.92rem; line-height: 1.75; color: var(--dark-brown); }
         .detail-card .address, .detail-card .note { margin-top: 14px; font-size: 0.88rem; color: var(--brown); font-style: italic; padding-top: 14px; border-top: 1px solid rgba(139,115,85,0.15); }
 
-        /* ===== SCHEDULE (FITTING GRID + ANIMATION) ===== */
         .schedule-section { background: var(--white); position: relative; }
-        .schedule-list { display: flex; flex-direction: column; gap: 20px; max-width: 760px; margin: 0 auto; }
-        .schedule-item { display: flex; align-items: flex-start; padding: 24px; background: rgba(255,255,255,0.55); backdrop-filter: blur(8px); border-radius: 18px; border: 1px solid rgba(255,255,255,0.6); border-left: 4px solid var(--olive); box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: all 0.35s var(--ease-apple); }
-        .schedule-item:hover { background: rgba(255,255,255,0.8); transform: translateX(5px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
-        .schedule-time { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--olive); min-width: 85px; margin-right: 22px; }
-        .schedule-content h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--black); margin-bottom: 6px; }
-        .schedule-content p { font-size: 0.92rem; color: var(--dark-brown); line-height: 1.65; }
+        .schedule-list { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; }
+        .schedule-item { display: flex; flex-direction: column; align-items: flex-start; padding: 26px 22px; background: rgba(255,255,255,0.65); backdrop-filter: blur(10px); border-radius: 20px; border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 6px 20px rgba(0,0,0,0.04); transition: all 0.35s var(--ease-apple); position: relative; overflow: hidden; }
+        .schedule-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--olive), var(--light-sage)); opacity: 0.85; }
+        .schedule-item:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.07); }
+        .schedule-time { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--olive); margin-bottom: 8px; }
+        .schedule-content h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--black); margin-bottom: 6px; }
+        .schedule-content p { font-size: 0.88rem; color: var(--dark-brown); line-height: 1.55; }
+        .schedule-note { font-size: 0.75rem; color: var(--brown); font-style: italic; margin-top: 6px; opacity: 0.85; }
+        @media (min-width: 1024px) { .schedule-list { flex-direction: row; gap: 16px; max-width: 1200px; padding: 10px 0; } .schedule-item { flex: 1; min-width: 180px; padding: 24px 18px; } .schedule-item:hover { transform: translateY(-5px); } .schedule-time { font-size: 1.4rem; } .schedule-content h4 { font-size: 1.15rem; } .schedule-content p { font-size: 0.82rem; } }
 
-        @media (min-width: 1024px) {
-            .schedule-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 100%; padding: 10px 0; }
-            .schedule-item { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
-            .schedule-time { margin-right: 0; margin-bottom: 10px; }
-            .schedule-item:hover { transform: translateY(-5px); }
-        }
-        @media (min-width: 1300px) {
-            .schedule-list { grid-template-columns: repeat(6, 1fr); gap: 16px; }
-            .schedule-item { padding: 20px 16px; }
-            .schedule-time { font-size: 1.35rem; }
-            .schedule-content h4 { font-size: 1.15rem; }
-            .schedule-content p { font-size: 0.85rem; line-height: 1.5; }
-        }
-
-        /* ===== TELEGRAM ===== */
         .telegram-section { background: linear-gradient(135deg, var(--black) 0%, var(--dark-brown) 100%); color: var(--white); text-align: center; padding: 100px 20px; overflow: hidden; }
         .telegram-section .section-title h2 { color: var(--white); }
         .telegram-section .section-title p { color: var(--beige); }
@@ -144,17 +121,26 @@
         .telegram-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(107,123,95,0.45); }
         .telegram-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
-        /* ===== WISHLIST ===== */
+        /* ===== WISHLIST (SMOOTH ACCORDION) ===== */
         .wishlist-section { background: var(--white); }
         .wishlist-intro { text-align: center; max-width: 740px; margin: 0 auto 55px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--dark-brown); line-height: 1.9; }
-        .wishlist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 26px; }
-        .wishlist-category { padding: 30px; }
-        .wishlist-category h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--black); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid rgba(107,123,95,0.2); }
+        .wishlist-grid { display: flex; flex-direction: column; gap: 20px; max-width: 850px; margin: 0 auto; }
+        .accordion-item { padding: 0; overflow: hidden; }
+        .accordion-header { padding: 22px 28px; cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; color: var(--black); font-weight: 500; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; user-select: none; }
+        .accordion-header:hover { background: rgba(107,123,95,0.04); }
+        .accordion-header.active { background: rgba(107,123,95,0.06); border-bottom: 1px solid rgba(139,115,85,0.12); }
+        .accordion-icon { color: var(--olive); font-size: 1rem; transition: transform 0.35s var(--ease-apple); }
+        .accordion-header.active .accordion-icon { transform: rotate(45deg); }
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.45s var(--ease-apple), padding 0.45s var(--ease-apple); padding: 0 28px; }
+        .accordion-body.open { max-height: 1500px; padding: 20px 28px 28px; }
         .wishlist-list { list-style: none; }
-        .wishlist-list li { position: relative; padding-left: 24px; margin-bottom: 14px; font-size: 0.9rem; color: var(--dark-brown); line-height: 1.55; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .wishlist-list li { position: relative; padding-left: 22px; margin-bottom: 16px; font-size: 0.88rem; color: var(--dark-brown); line-height: 1.5; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .wishlist-list li::before { content: '✦'; position: absolute; left: 0; top: 2px; color: var(--olive); font-size: 0.7rem; }
-        .wishlist-item-wrap { display: flex; flex-direction: column; gap: 2px; flex: 1; }
-        .wishlist-price { font-size: 0.76rem; color: var(--brown); opacity: 0.7; font-style: italic; }
+        .wishlist-item-wrap { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 200px; }
+        .wishlist-price { font-size: 0.75rem; color: var(--brown); opacity: 0.75; font-style: italic; }
+        .wishlist-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .wishlist-link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.72rem; color: var(--olive); text-decoration: none; border: 1px solid var(--olive); padding: 4px 10px; border-radius: 14px; transition: all 0.25s var(--ease-apple); white-space: nowrap; }
+        .wishlist-link:hover { background: var(--olive); color: var(--white); }
         .reserve-btn { padding: 5px 12px; background: rgba(107,123,95,0.1); border: 1px solid var(--olive); border-radius: 18px; color: var(--olive); font-size: 0.72rem; cursor: pointer; transition: all 0.25s var(--ease-apple); white-space: nowrap; font-weight: 500; }
         .reserve-btn:hover { background: var(--olive); color: var(--white); }
         .reserve-btn.reserved { background: var(--brown); border-color: var(--brown); color: var(--white); cursor: not-allowed; }
@@ -184,13 +170,16 @@
         .option-btn input:checked + label { background: var(--olive); border-color: var(--olive); color: var(--white); font-weight: 600; box-shadow: 0 4px 12px rgba(107,123,95,0.35); }
         .option-btn label:hover { border-color: var(--light-sage); color: var(--light-sage); transform: translateY(-1px); }
         .checkbox-row { display: flex; align-items: center; gap: 9px; margin-top: 10px; }
-        .checkbox-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--olive); cursor: pointer; }
+        .checkbox-row input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: 5px; cursor: pointer; transition: all 0.25s var(--ease-apple); position: relative; flex-shrink: 0; }
+        .checkbox-row input[type="checkbox"]:checked { background: rgba(107,123,95,0.85); border-color: var(--olive); }
+        .checkbox-row input[type="checkbox"]:checked::after { content: '✓'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--white); font-size: 11px; font-weight: bold; line-height: 1; }
         .checkbox-row label { margin-bottom: 0; font-size: 0.8rem; letter-spacing: 0.4px; text-transform: none; cursor: pointer; color: rgba(255,255,255,0.72); }
-        
         .form-conditional { display: grid; grid-template-rows: 1fr; transition: grid-template-rows 0.5s var(--ease-apple), opacity 0.4s ease, margin 0.4s ease; }
         .form-conditional.hidden { grid-template-rows: 0fr; opacity: 0; margin-bottom: 0 !important; pointer-events: none; }
         .form-conditional > div { overflow: hidden; }
-        
+        @keyframes alcoholPulse { 0%,100%{box-shadow:0 0 0 3px rgba(107,123,95,0.15);border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.06)} 50%{box-shadow:0 0 0 6px rgba(107,123,95,0.5);border-color:var(--olive);background:rgba(255,255,255,0.12)} }
+        .alcohol-highlight { animation: alcoholPulse 2s ease-in-out; }
+
         .submit-btn { display: block; width: 100%; padding: 16px; background: linear-gradient(135deg, var(--olive), var(--light-sage)); color: var(--black); border: none; border-radius: 13px; font-family: 'Montserrat', sans-serif; font-size: 0.82rem; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: all 0.35s var(--ease-apple); position: relative; overflow: hidden; margin-top: 26px; box-shadow: 0 8px 24px rgba(107,123,95,0.3); }
         .submit-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent); transition: left 0.5s ease; }
         .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(107,123,95,0.4); }
@@ -202,18 +191,14 @@
         .success-message h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--light-sage); margin-bottom: 14px; }
         .success-message p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.75; }
 
-        /* ===== FOOTER ===== */
         .footer { background: var(--black); color: rgba(255,255,255,0.4); text-align: center; padding: 70px 20px; position: relative; z-index: 2; }
         .footer-names { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--beige); margin-bottom: 14px; }
         .footer-date { font-size: 0.85rem; letter-spacing: 3.5px; text-transform: uppercase; margin-bottom: 14px; color: var(--olive); font-weight: 600; }
         .footer-location { font-size: 0.88rem; margin-bottom: 22px; color: rgba(255,255,255,0.5); }
         .footer-note { font-size: 0.82rem; max-width: 380px; margin: 0 auto; line-height: 1.75; }
-
-        /* ===== TOAST ===== */
         .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(90px); background: rgba(26,26,26,0.92); backdrop-filter: blur(8px); color: var(--white); padding: 12px 24px; border-radius: 11px; font-size: 0.88rem; z-index: 1000; transition: transform 0.35s var(--ease-apple); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
-        /* ===== ANIMATIONS & REDUCED MOTION ===== */
         [data-reveal] { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo); will-change: opacity, transform; }
         [data-reveal].visible { opacity: 1; transform: translateY(0) scale(1); }
         [data-reveal="left"] { transform: translateX(-35px) scale(0.98); }
@@ -224,185 +209,134 @@
         [data-reveal="scale"].visible { transform: scale(1); }
         .stagger-1 { transition-delay: 0.08s; } .stagger-2 { transition-delay: 0.16s; } .stagger-3 { transition-delay: 0.24s; } .stagger-4 { transition-delay: 0.32s; } .stagger-5 { transition-delay: 0.4s; }
         @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-            .bg-gradient, .mouse-gradient, .noise-overlay { display: none !important; }
-        }
-        @media (max-width: 1024px) { .details-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) {
-            .nav { gap: 5px; padding: 7px 10px; width: 94%; }
-            .nav a { font-size: 0.56rem; padding: 5px 9px; }
-            .glass-card, .nav, .rsvp-form, .telegram-card, .dresscode-notes { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-            .countdown-grid { gap: 12px; }
-            .countdown-item { min-width: 75px; padding: 18px 10px; }
-            .countdown-separator { display: none; }
-            .details-grid { grid-template-columns: 1fr; }
-            .rsvp-form { padding: 30px 18px; }
-            section { padding: 80px 16px; }
-            .schedule-item { flex-direction: column; }
-            .schedule-time { margin-right: 0; margin-bottom: 8px; }
-            .telegram-card { padding: 35px 20px; }
-            .hero-card { padding: 35px 22px 48px; }
-            .wishlist-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 480px) {
-            .hero-names { font-size: 2.6rem; }
-            .color-circle { width: 52px; height: 52px; }
-            .option-group { flex-direction: column; }
-            .option-btn label { text-align: center; width: 100%; }
-            .wishlist-list li { flex-direction: column; align-items: flex-start; }
-            .reserve-btn { align-self: flex-end; }
-        }
+        @media (prefers-reduced-motion: reduce) { *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important} .bg-gradient,.noise-overlay{display:none!important} }
+        @media (max-width: 1024px) { .details-grid{grid-template-columns:1fr 1fr} }
+        @media (max-width: 768px) { .nav{gap:5px;padding:7px 10px;width:94%} .nav a{font-size:0.56rem;padding:5px 9px} .glass-card,.nav,.rsvp-form,.telegram-card,.dresscode-notes{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)} .countdown-grid{gap:12px} .countdown-item{min-width:75px;padding:18px 10px} .countdown-separator{display:none} .details-grid{grid-template-columns:1fr} .rsvp-form{padding:30px 18px} section{padding:80px 16px} .schedule-item{padding:22px} .telegram-card{padding:35px 20px} .hero-card{padding:35px 22px 48px} .wishlist-list li{flex-direction:column;align-items:flex-start} .wishlist-actions{width:100%;justify-content:flex-end;margin-top:6px} }
+        @media (max-width: 480px) { .hero-names{font-size:2.6rem} .color-circle{width:52px;height:52px} .option-group{flex-direction:column} .option-btn label{text-align:center;width:100%} }
     </style>
 </head>
 <body>
     <div class="bg-gradient"><div class="gradient-blob blob-1"></div><div class="gradient-blob blob-2"></div><div class="gradient-blob blob-3"></div></div>
-    <div class="mouse-gradient" id="mouseGradient"></div>
     <div class="noise-overlay"></div>
-
-    <nav class="nav" id="navbar">
-        <a href="#home" class="active">Главная</a><a href="#dresscode">Дресс-код</a><a href="#details">Детали</a><a href="#schedule">Программа</a><a href="#telegram">Telegram</a><a href="#wishlist">Вишлист</a><a href="#rsvp">Анкета</a>
-    </nav>
+    <nav class="nav" id="navbar"><a href="#home" class="active">Главная</a><a href="#dresscode">Дресс-код</a><a href="#details">Детали</a><a href="#schedule">Программа</a><a href="#telegram">Telegram</a><a href="#wishlist">Вишлист</a><a href="#rsvp">Анкета</a></nav>
 
     <section class="hero" id="home"><div class="hero-card glass-card" data-reveal="scale"><div class="hero-badge">Приглашение на свадьбу</div><h1 class="hero-names">Назар <span class="amp">&</span> Ирина</h1><div class="hero-divider"></div><p class="hero-subtitle">«Любовь — это когда счастье другого важнее собственного»</p><p class="hero-location">Екатеринбург • 19 сентября 2026</p></div></section>
 
     <section class="countdown-section"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><h2 data-reveal>Обратный отсчёт</h2><p data-reveal>До нашего счастливого момента</p></div><div class="countdown-grid"><div class="countdown-item" data-reveal="scale"><span class="countdown-number" id="days">00</span><div class="countdown-label">Дней</div></div><div class="countdown-separator">:</div><div class="countdown-item" data-reveal="scale stagger-1"><span class="countdown-number" id="hours">00</span><div class="countdown-label">Часов</div></div><div class="countdown-separator">:</div><div class="countdown-item" data-reveal="scale stagger-2"><span class="countdown-number" id="minutes">00</span><div class="countdown-label">Минут</div></div><div class="countdown-separator">:</div><div class="countdown-item" data-reveal="scale stagger-3"><span class="countdown-number" id="seconds">00</span><div class="countdown-label">Секунд</div></div></div></div></section>
 
-    <section class="dresscode-section" id="dresscode"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Важная информация</p><h2 data-reveal>Дресс-код</h2></div><div class="dresscode-content"><p class="dresscode-intro" data-reveal>Мы будем очень рады, если вы поддержите цветовую гамму праздника: оттенки коричневого, бежевого, оливкового и зелёного</p><div class="color-palette"><div class="color-circle c1" data-name="Тёмно-коричневый" data-reveal="scale stagger-1"></div><div class="color-circle c2" data-name="Коричневый" data-reveal="scale stagger-2"></div><div class="color-circle c3" data-name="Бежевый" data-reveal="scale stagger-3"></div><div class="color-circle c4" data-name="Кремовый" data-reveal="scale stagger-4"></div><div class="color-circle c5" data-name="Светло-оливковый" data-reveal="scale stagger-5"></div><div class="color-circle c6" data-name="Оливковый" data-reveal="scale stagger-5"></div><div class="color-circle c7" data-name="Приглушённый зелёный" data-reveal="scale stagger-5"></div></div><div class="dresscode-notes glass-card" data-reveal><h3>Пожелания по нарядам</h3><ul><li><strong>Просим не надевать белый цвет</strong> — он зарезервирован для невесты</li><li>Для дам: коктейльные или вечерние платья, элегантные костюмы</li><li>Для мужчин: костюм или рубашка с брюками, пиджак приветствуется</li><li>Пожалуйста, избегайте джинсов, спортивной одежды и слишком ярких неоновых оттенков</li><li>Мы будем счастливы, если вы поддержите тёплую природную палитру праздника</li></ul></div></div></div></section>
+    <section class="dresscode-section" id="dresscode"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Важная информация</p><h2 data-reveal>Дресс-код</h2></div><div class="dresscode-content"><p class="dresscode-intro" data-reveal>Мы будем очень рады, если вы поддержите цветовую гамму праздника: тёплые природные оттенки, вдохновлённые ранней осенью</p><div class="color-palette"><div class="color-circle c1" data-name="Горький шоколад" data-reveal="scale stagger-1"></div><div class="color-circle c2" data-name="Каштановый" data-reveal="scale stagger-2"></div><div class="color-circle c3" data-name="Песочная вуаль" data-reveal="scale stagger-3"></div><div class="color-circle c4" data-name="Сливочный крем" data-reveal="scale stagger-4"></div><div class="color-circle c5" data-name="Утренняя олива" data-reveal="scale stagger-5"></div><div class="color-circle c6" data-name="Лесной мох" data-reveal="scale stagger-5"></div><div class="color-circle c7" data-name="Припылённый шалфей" data-reveal="scale stagger-5"></div></div><div class="dresscode-notes glass-card" data-reveal><h3>Пожелания по нарядам</h3><ul><li><strong>Просим не надевать белый цвет</strong> — он зарезервирован для невесты</li><li>Для дам: коктейльные или вечерние платья, элегантные костюмы</li><li>Для мужчин: костюм или рубашка с брюками, пиджак приветствуется</li><li>Пожалуйста, избегайте джинсов, спортивной одежды и слишком ярких неоновых оттенков</li><li>Мы будем счастливы, если вы поддержите тёплую природную палитру праздника</li></ul></div></div></div></section>
 
     <section class="details-section" id="details"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Где и когда</p><h2 data-reveal>Детали торжества</h2></div><div class="details-grid"><div class="detail-card glass-card" data-reveal="left"><div class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="8.5" cy="12" r="5.5"/><circle cx="15.5" cy="12" r="5.5"/><path d="M12 12v.01"/></svg></div><h3>Регистрация</h3><div class="time">14:00</div><p>Торжественная регистрация брака в ЗАГСе</p><p class="address">ул. Карла Либкнехта, 3<br>Лазурный зал<br>Екатеринбург</p><p class="note">Зал вмещает ограниченное количество гостей. Мы лично пригласим ближайших родственников на церемонию.</p></div><div class="detail-card glass-card" data-reveal><div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M9 2h6v5a3 3 0 0 1-6 0V2z"/><path d="M12 7v5"/><path d="M8 12h8"/><path d="M10 16h4"/><path d="M12 12v4"/></svg></div><h3>Банкет</h3><div class="time">17:00 — 23:00</div><p>Праздничный ужин, поздравления, танцы и веселье</p><p class="address">Веранда «Глиссандо»<br>ул. Рощинская, 69Б<br>Екатеринбург</p></div><div class="detail-card glass-card" data-reveal="right"><div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M5 17h14v-6H5v6z"/><path d="M7 11V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M3 17h2m14 0h2"/></svg></div><h3>Трансфер</h3><div class="time">По запросу</div><p>После завершения банкета мы организуем трансфер до вашего дома или места проживания. Пожалуйста, заранее сообщите координатору адрес.</p><p class="note">Комфортабельные микроавтобусы будут ждать гостей у входа на веранду</p></div></div></div></section>
 
-    <section class="schedule-section" id="schedule"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Программа дня</p><h2 data-reveal>Расписание</h2></div><div class="schedule-list" id="scheduleTrack"><div class="schedule-item" data-reveal="scale stagger-1"><div class="schedule-time">14:00</div><div class="schedule-content"><h4>Регистрация брака</h4><p>Лазурный зал — только для приглашённых на церемонию</p></div></div><div class="schedule-item" data-reveal="scale stagger-2"><div class="schedule-time">15:30</div><div class="schedule-content"><h4>Сбор на веранде</h4><p>Welcome-зона, приветственный коктейль, фотосессия</p></div></div><div class="schedule-item" data-reveal="scale stagger-3"><div class="schedule-time">17:00</div><div class="schedule-content"><h4>Банкет</h4><p>Праздничный ужин, тосты, поздравления</p></div></div><div class="schedule-item" data-reveal="scale stagger-4"><div class="schedule-time">19:00</div><div class="schedule-content"><h4>Свадебный торт</h4><p>Первый танец молодожёнов и разрезание торта</p></div></div><div class="schedule-item" data-reveal="scale stagger-5"><div class="schedule-time">20:00</div><div class="schedule-content"><h4>Вечерняя программа</h4><p>Танцы, конкурсы, веселье</p></div></div><div class="schedule-item" data-reveal="scale stagger-5"><div class="schedule-time">23:00</div><div class="schedule-content"><h4>Завершение вечера</h4><p>Фейерверк и прощание</p></div></div></div></div></section>
+    <section class="schedule-section" id="schedule"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Программа дня</p><h2 data-reveal>Расписание</h2></div><div class="schedule-list" id="scheduleTrack"><div class="schedule-item" data-reveal="scale stagger-1"><div class="schedule-time">14:00</div><div class="schedule-content"><h4>Регистрация брака</h4><p>Торжественная церемония в ЗАГСе</p><p class="schedule-note">Только для ближайших родственников</p></div></div><div class="schedule-item" data-reveal="scale stagger-2"><div class="schedule-time">16:30</div><div class="schedule-content"><h4>Сбор гостей</h4><p>Welcome-зона и приветственные напитки</p></div></div><div class="schedule-item" data-reveal="scale stagger-3"><div class="schedule-time">17:00</div><div class="schedule-content"><h4>Начало банкета</h4><p>Праздничный ужин, тосты и поздравления</p></div></div><div class="schedule-item" data-reveal="scale stagger-4"><div class="schedule-time">22:00</div><div class="schedule-content"><h4>Дискотека</h4><p>Танцы, веселье и вечерняя программа</p></div></div><div class="schedule-item" data-reveal="scale stagger-5"><div class="schedule-time">23:00</div><div class="schedule-content"><h4>Окончание вечера</h4><p>Фейерверк и прощание</p></div></div></div></div></section>
 
     <section class="telegram-section" id="telegram"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Будем на связи</p><h2 data-reveal>Наша группа в Telegram</h2></div><div class="telegram-card" data-reveal="scale"><svg class="telegram-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.12.098.153.23.168.332.016.101.036.332.02.512z"/></svg><h3>Присоединяйтесь к нашему чату</h3><p>Мы создали общую группу, где будем делиться новостями, фото и полезной информацией для гостей. Присоединяйтесь — будем рады видеть вас!</p><a href="https://t.me/+YuLqqADXO404ODIy" target="_blank" class="telegram-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.12.098.153.23.168.332.016.101.036.332.02.512z"/></svg> Вступить в группу</a></div></div></section>
 
-    <section class="wishlist-section" id="wishlist"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Если хотите сделать подарок</p><h2 data-reveal>Наш вишлист</h2></div><p class="wishlist-intro" data-reveal>Ваше присутствие — уже самый ценный подарок для нас. Но если вы всё же хотите порадовать нас чем-то материальным, вот список вещей, которые будут нам очень полезны в начале семейной жизни.</p><div class="wishlist-grid"><div class="wishlist-category glass-card" data-reveal="left"><h4>Для кухни</h4><ul class="wishlist-list"><li><div class="wishlist-item-wrap"><span class="wishlist-item">Набор ножей Samura Shadow (3 пр.)</span><span class="wishlist-price">~ 14 500 ₽</span></div><button class="reserve-btn" data-item="Набор ножей Samura">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Набор посуды Tefal Jamie Oliver</span><span class="wishlist-price">~ 18 000 ₽</span></div><button class="reserve-btn" data-item="Посуда Tefal Jamie Oliver">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Столовые приборы Tramontina Cosmo (24 пр.)</span><span class="wishlist-price">~ 9 200 ₽</span></div><button class="reserve-btn" data-item="Приборы Tramontina">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Аэрогриль Philips Premium XXL HD9867</span><span class="wishlist-price">~ 24 900 ₽</span></div><button class="reserve-btn" data-item="Аэрогриль Philips">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Вакуумный упаковщик Caso VC 10</span><span class="wishlist-price">~ 8 500 ₽</span></div><button class="reserve-btn" data-item="Вакууматор Caso VC 10">Забронировать</button></li></ul></div><div class="wishlist-category glass-card" data-reveal><h4>Для дома</h4><ul class="wishlist-list"><li><div class="wishlist-item-wrap"><span class="wishlist-item">Комплект сатинового белья Togas (Евро)</span><span class="wishlist-price">~ 11 000 ₽</span></div><button class="reserve-btn" data-item="Бельё Togas">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Цифровая фоторамка Nixplay 10.1"</span><span class="wishlist-price">~ 16 500 ₽</span></div><button class="reserve-btn" data-item="Фоторамка Nixplay">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Робот-пылесос Roborock S8 Pro Ultra</span><span class="wishlist-price">~ 89 000 ₽</span></div><button class="reserve-btn" data-item="Roborock S8 Pro">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Моющий пылесос Tineco Floor One S5</span><span class="wishlist-price">~ 42 000 ₽</span></div><button class="reserve-btn" data-item="Tineco Floor One S5">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Отпариватель Philips ComfortTouch GC557</span><span class="wishlist-price">~ 13 800 ₽</span></div><button class="reserve-btn" data-item="Отпариватель Philips">Забронировать</button></li></ul></div><div class="wishlist-category glass-card" data-reveal="right"><h4>Прочее</h4><ul class="wishlist-list"><li><div class="wishlist-item-wrap"><span class="wishlist-item">Умный замок Xiaomi Smart Door Lock Pro</span><span class="wishlist-price">~ 19 500 ₽</span></div><button class="reserve-btn" data-item="Замок Xiaomi">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Степпер с эспандерами Bradex SF 0032</span><span class="wishlist-price">~ 6 200 ₽</span></div><button class="reserve-btn" data-item="Степпер Bradex">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Набор инструментов Ombra OMT108 (108 пр.)</span><span class="wishlist-price">~ 12 400 ₽</span></div><button class="reserve-btn" data-item="Набор Ombra 108">Забронировать</button></li><li><div class="wishlist-item-wrap"><span class="wishlist-item">Шуруповёрт Makita DF333DWYE</span><span class="wishlist-price">~ 15 900 ₽</span></div><button class="reserve-btn" data-item="Makita DF333">Забронировать</button></li></ul></div></div><div class="wishlist-note" data-reveal>Мы подготовили «капсулу времени» — напишите пожелание или положите небольшой символичный предмет. Мы откроем её через 10 лет!<br><br>Также мы копим на обустройство семейного гнёздышка. Если хотите внести вклад в нашу мечту, будем очень благодарны.</div></div></section>
+    <section class="wishlist-section" id="wishlist"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Если хотите сделать подарок</p><h2 data-reveal>Наш вишлист</h2></div><p class="wishlist-intro" data-reveal>Ваше присутствие — уже самый ценный подарок для нас. Но если вы всё же хотите порадовать нас чем-то материальным, вот список вещей, которые будут нам очень полезны в начале семейной жизни.</p><div class="wishlist-grid">
+        <div class="accordion-item glass-card" data-reveal="left">
+            <div class="accordion-header">Сервировка и посуда <span class="accordion-icon">✦</span></div>
+            <div class="accordion-body"><ul class="wishlist-list">
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">WiMi Сервиз столовый на 4 персоны</span><span class="wishlist-price">~ 3 200 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/215479141/detail.aspx?size=343731379" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="WiMi Сервиз 4 персоны (1)">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">WiMi Сервиз столовый на 4 персоны</span><span class="wishlist-price">~ 2 900 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/844531371/detail.aspx?size=1269084572" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="WiMi Сервиз 4 персоны (2)">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Румма Набор посуды на 6 персон (24 пр.)</span><span class="wishlist-price">~ 8 500 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/756639482/detail.aspx?size=1097336206" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Румма Посуда 24 пр.">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Набор столовых приборов 30 пр. на 6 персон</span><span class="wishlist-price">~ 4 800 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/333985408/detail.aspx?size=499308523" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Приборы 30 пр.">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Набор ножей Samura Shadow (3 пр.)</span><span class="wishlist-price">~ 14 500 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+набор+ножей+Samura+Shadow+3+предмета" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Набор ножей Samura">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Набор посуды Tefal Jamie Oliver</span><span class="wishlist-price">~ 18 000 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+набор+посуды+Tefal+Jamie+Oliver" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Посуда Tefal Jamie Oliver">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Столовые приборы Tramontina Cosmo (24 пр.)</span><span class="wishlist-price">~ 9 200 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+столовые+приборы+Tramontina+Cosmo+24+предмета" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Приборы Tramontina">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Аэрогриль Philips Premium XXL HD9867</span><span class="wishlist-price">~ 24 900 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+аэрогриль+Philips+Premium+XXL+HD9867" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Аэрогриль Philips">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Вакуумный упаковщик Caso VC 10</span><span class="wishlist-price">~ 8 500 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+вакуумный+упаковщик+Caso+VC+10" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Вакууматор Caso VC 10">Забронировать</button></div></li>
+            </ul></div>
+        </div>
+        <div class="accordion-item glass-card" data-reveal>
+            <div class="accordion-header">Текстиль и уют <span class="accordion-icon">✦</span></div>
+            <div class="accordion-body"><ul class="wishlist-list">
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">COZY HOME Постельное бельё 2-сп. поплин</span><span class="wishlist-price">~ 4 100 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/449390517/detail.aspx?size=635074573" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="COZY HOME 2-сп (1)">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">COZY HOME Постельное бельё 2-сп. поплин</span><span class="wishlist-price">~ 3 900 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/119379932/detail.aspx?size=211794486" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="COZY HOME 2-сп (2)">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">COZY HOME Постельное бельё Евро перкаль</span><span class="wishlist-price">~ 5 200 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/170416175/detail.aspx?size=282965874" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="COZY HOME Евро">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Комплект сатинового белья Togas (Евро)</span><span class="wishlist-price">~ 11 000 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+комплект+сатинового+белья+Togas+Евро" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Бельё Togas">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Livanta Фоторамка цифровая</span><span class="wishlist-price">~ 6 800 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/315344321/detail.aspx?size=475923104" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Livanta Фоторамка">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Цифровая фоторамка электронная</span><span class="wishlist-price">~ 5 500 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/783604942/detail.aspx?size=1155238208" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Электронная фоторамка">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">FRAMEO Умная цифровая фоторамка IPS HD 10.1"</span><span class="wishlist-price">~ 9 900 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/465660408/detail.aspx?size=654327209" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="FRAMEO IPS HD">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">DENSELL Цифровая фоторамка 10.1" Wi-Fi</span><span class="wishlist-price">~ 8 200 ₽</span></div><div class="wishlist-actions"><a href="https://www.wildberries.ru/catalog/258925649/detail.aspx?size=402696974" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="DENSELL Wi-Fi рамка">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Цифровая фоторамка Nixplay 10.1"</span><span class="wishlist-price">~ 16 500 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+цифровая+фоторамка+Nixplay+10.1" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Фоторамка Nixplay">Забронировать</button></div></li>
+            </ul></div>
+        </div>
+        <div class="accordion-item glass-card" data-reveal="right">
+            <div class="accordion-header">Техника и инструменты <span class="accordion-icon">✦</span></div>
+            <div class="accordion-body"><ul class="wishlist-list">
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Робот-пылесос Dreame L10s Pro Ultra Heat</span><span class="wishlist-price">~ 48 000 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+робот+пылесос+Dreame+L10s+Pro+Ultra+Heat" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Dreame L10s Pro">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Моющий пылесос Tineco Floor One S5</span><span class="wishlist-price">~ 42 000 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+моющий+пылесос+Tineco+Floor+One+S5" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Tineco Floor One S5">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Отпариватель Philips ComfortTouch GC557</span><span class="wishlist-price">~ 13 800 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+отпариватель+Philips+ComfortTouch+GC557" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Отпариватель Philips">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Умный замок Xiaomi Smart Door Lock Pro</span><span class="wishlist-price">~ 19 500 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+умный+замок+Xiaomi+Smart+Door+Lock+Pro" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Замок Xiaomi">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Степпер с эспандерами Bradex SF 0032</span><span class="wishlist-price">~ 6 200 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+степпер+с+эспандерами+Bradex+SF+0032" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Степпер Bradex">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Набор инструментов Ombra OMT108 (108 пр.)</span><span class="wishlist-price">~ 12 400 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+набор+инструментов+Ombra+OMT108+108+предметов" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Набор Ombra 108">Забронировать</button></div></li>
+                <li><div class="wishlist-item-wrap"><span class="wishlist-item">Шуруповёрт Makita DF333DWYE</span><span class="wishlist-price">~ 15 900 ₽</span></div><div class="wishlist-actions"><a href="https://www.google.com/search?q=купить+шуруповёрт+Makita+DF333DWYE" target="_blank" class="wishlist-link">Смотреть ↗</a><button class="reserve-btn" data-item="Makita DF333">Забронировать</button></div></li>
+            </ul></div>
+        </div>
+    </div>
+    <div class="wishlist-note" data-reveal>Мы подготовили «капсулу времени» — напишите пожелание или положите небольшой символичный предмет. Мы откроем её через 10 лет!<br><br>Также мы копим на нашу большую мечту — собственный автомобиль и квартиру. Если хотите внести вклад в наше будущее, будем бесконечно благодарны.</div></div></section>
 
-    <section class="rsvp-section" id="rsvp"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Ждём вашего ответа</p><h2 data-reveal>Анкета гостя</h2></div><div class="rsvp-container"><form class="rsvp-form" id="rsvpForm" data-reveal="scale"><div class="form-section"><h3 class="form-section-title">Основная информация</h3><div class="form-group"><label>Ваши имена и фамилии</label><input type="text" name="names" placeholder="Иван и Мария Ивановы" required></div><div class="form-group"><label>Вы придёте на свадьбу?</label><div class="option-group"><div class="option-btn"><input type="radio" name="attendance" id="att_yes" value="yes" required><label for="att_yes">С радостью приду</label></div><div class="option-btn"><input type="radio" name="attendance" id="att_no" value="no"><label for="att_no">К сожалению, нет</label></div></div></div></div><div id="conditionalFields" class="form-conditional"><div><div class="form-section"><h3 class="form-section-title">Количество гостей</h3><div class="form-group"><label>Количество гостей (включая вас)</label><div class="option-group" id="guestCountGroup"><div class="option-btn"><input type="radio" name="guests" id="g1" value="1" checked><label for="g1">1 человек</label></div><div class="option-btn"><input type="radio" name="guests" id="g2" value="2"><label for="g2">2 человека</label></div><div class="option-btn"><input type="radio" name="guests" id="g3" value="3"><label for="g3">3 человека</label></div><div class="option-btn"><input type="radio" name="guests" id="g4" value="4"><label for="g4">4 человека</label></div></div><p class="form-note">К сожалению, формат свадьбы не предусматривает +1 гостя</p></div></div><div class="form-section"><h3 class="form-section-title">Предпочтения гостя №1 (Ваши)</h3><div class="form-group"><label>Основное блюдо</label><div class="option-group"><div class="option-btn"><input type="radio" name="guest_1_main_dish" id="g1_meat" value="meat" required><label for="g1_meat">Мясо</label></div><div class="option-btn"><input type="radio" name="guest_1_main_dish" id="g1_fish" value="fish"><label for="g1_fish">Рыба</label></div><div class="option-btn"><input type="radio" name="guest_1_main_dish" id="g1_veg" value="vegetarian"><label for="g1_veg">Вегетарианское</label></div></div></div><div class="form-group"><label>Напитки и алкоголь</label><textarea name="guest_1_drinks" placeholder="Предпочтения по напиткам, аллергии"></textarea></div></div><div id="guestPreferencesContainer"></div><div class="form-section"><h3 class="form-section-title">Размещение</h3><div class="form-group"><label>Нужна ли помощь с размещением?</label><div class="option-group"><div class="option-btn"><input type="radio" name="accommodation" id="ac_yes" value="yes"><label for="ac_yes">Да, нужно размещение</label></div><div class="option-btn"><input type="radio" name="accommodation" id="ac_no" value="no" checked><label for="ac_no">Нет, всё решено</label></div></div></div></div></div></div><div class="form-section"><h3 class="form-section-title">Контакты и пожелания</h3><div class="form-group"><label>Телефон для связи</label><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required><div class="checkbox-row"><input type="checkbox" id="tgLinked" name="tg_linked"><label for="tgLinked">Привязан к Telegram</label></div></div><div class="form-group" id="tgFieldGroup"><label>Ваш Telegram</label><input type="text" name="telegram" placeholder="@username или https://t.me/username"></div><div class="form-group"><label>Пожелания или комментарии</label><textarea name="comments" placeholder="Напишите что-нибудь тёплое или задайте вопрос"></textarea></div></div><button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button></form><div class="success-message" id="successMessage"><div class="success-icon">✦</div><h3>Спасибо за ответ!</h3><p>Ваша информация успешно отправлена.<br>Мы с нетерпением ждём встречи с вами<br>на нашем празднике!</p></div></div></div></section>
+    <section class="rsvp-section" id="rsvp"><div class="container"><div class="section-title"><span class="ornament" data-reveal>◆</span><p data-reveal>Ждём вашего ответа</p><h2 data-reveal>Анкета гостя</h2></div><div class="rsvp-container"><form class="rsvp-form" id="rsvpForm" data-reveal="scale"><div class="form-section"><h3 class="form-section-title">Основная информация</h3><div class="form-group"><label>Ваши имена и фамилии</label><input type="text" name="names" placeholder="Иван и Мария Ивановы" required></div><div class="form-group"><label>Вы придёте на свадьбу?</label><div class="option-group"><div class="option-btn"><input type="radio" name="attendance" id="att_yes" value="yes" required><label for="att_yes">С радостью приду</label></div><div class="option-btn"><input type="radio" name="attendance" id="att_no" value="no"><label for="att_no">К сожалению, нет</label></div></div></div></div><div id="conditionalFields" class="form-conditional"><div><div class="form-section"><h3 class="form-section-title">Количество гостей</h3><div class="form-group"><label>Количество гостей (включая вас)</label><div class="option-group" id="guestCountGroup"><div class="option-btn"><input type="radio" name="guests" id="g1" value="1" checked><label for="g1">1 человек</label></div><div class="option-btn"><input type="radio" name="guests" id="g2" value="2"><label for="g2">2 человека</label></div><div class="option-btn"><input type="radio" name="guests" id="g3" value="3"><label for="g3">3 человека</label></div><div class="option-btn"><input type="radio" name="guests" id="g4" value="4"><label for="g4">4 человека</label></div></div><p class="form-note">К сожалению, формат свадьбы не предусматривает +1 гостя</p></div></div><div class="form-section"><h3 class="form-section-title">Предпочтения</h3><div class="form-group"><label id="g1_drinks_label">Предпочтения</label><textarea id="g1_drinks_input" name="guest_1_drinks" placeholder="Любимые напитки, аллергии или ограничения в еде"></textarea><div class="checkbox-row"><input type="checkbox" id="g1_alcohol" name="guest_1_alcohol"><label for="g1_alcohol">Планирую алкоголь</label></div></div></div><div id="guestPreferencesContainer"></div><div class="form-section"><h3 class="form-section-title">Размещение</h3><div class="form-group"><label>Нужна ли помощь с размещением?</label><div class="option-group"><div class="option-btn"><input type="radio" name="accommodation" id="ac_yes" value="yes"><label for="ac_yes">Да, нужно размещение</label></div><div class="option-btn"><input type="radio" name="accommodation" id="ac_no" value="no" checked><label for="ac_no">Нет, всё решено</label></div></div></div></div></div></div><div class="form-section"><h3 class="form-section-title">Контакты и пожелания</h3><div class="form-group"><label>Телефон для связи</label><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required><div class="checkbox-row"><input type="checkbox" id="tgLinked" name="tg_linked"><label for="tgLinked">Привязан к Telegram</label></div></div><div class="form-group" id="tgFieldGroup"><label>Ваш Telegram</label><input type="text" name="telegram" placeholder="@username или https://t.me/username"></div><div class="form-group"><label>Пожелания или комментарии</label><textarea name="comments" placeholder="Напишите что-нибудь тёплое или задайте вопрос"></textarea></div></div><button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button></form><div class="success-message" id="successMessage"><div class="success-icon">✦</div><h3>Спасибо за ответ!</h3><p>Ваша информация успешно отправлена.<br>Мы с нетерпением ждём встречи с вами<br>на нашем празднике!</p></div></div></div></section>
 
     <footer class="footer"><div class="footer-names" data-reveal>Назар & Ирина</div><div class="footer-date" data-reveal>19 сентября 2026</div><div class="footer-location" data-reveal>Екатеринбург • Веранда «Глиссандо»</div><p class="footer-note" data-reveal>Будем счастливы разделить этот важный день с вами!</p></footer>
     <div class="toast" id="toast"></div>
 
     <script>
         // 🔗 ЗАМЕНИТЕ ЭТУ ССЫЛКУ НА ВАШУ GOOGLE APPS SCRIPT WEB APP URL
-        const API_URL = 'https://script.google.com/macros/s/ВАШ_ID/exec';
+        const API_URL = 'https://script.google.com/macros/s/AKfycbxDBeMnUNtcbxLyixGjH65Jj80IilxtLt-bWORqsk6qe6fdmxQOYmFt_wlDMy8CXwUR/exec';
 
         class WeddingEngine {
             constructor() {
-                this.rafId = null; this.mouseX = 0; this.mouseY = 0; this.curMouseX = 0; this.curMouseY = 0;
-                this.isTouch = window.matchMedia('(pointer: coarse)').matches;
-                this.guestCount = 1; this.lastActiveSection = '';
-                this.mouseIdleTimer = null; this.isMouseActive = false;
-                this.init();
+                this.rafId = null; this.isTouch = window.matchMedia('(pointer: coarse)').matches;
+                this.guestCount = 1; this.lastActiveSection = ''; this.init();
             }
             init() {
                 this.initNav(); this.initNavTheme(); this.initReveal(); this.initCountdown();
-                this.initWishlistSync(); this.initDynamicRSVP(); this.initAttendanceToggle();
-                this.initTelegramToggle(); this.initFormSubmission();
-                if (!this.isTouch) this.initMouseGradient();
-            }
-            initMouseGradient() {
-                const grad = document.getElementById('mouseGradient');
-                if (!grad) return;
-                const animate = () => {
-                    if (!this.isMouseActive) return;
-                    this.curMouseX += (this.mouseX - this.curMouseX) * 0.1;
-                    this.curMouseY += (this.mouseY - this.curMouseY) * 0.1;
-                    grad.style.transform = `translate(${this.curMouseX}px, ${this.curMouseY}px) translate(-50%, -50%)`;
-                    this.rafId = requestAnimationFrame(animate);
-                };
-                document.addEventListener('mousemove', (e) => {
-                    this.mouseX = e.clientX; this.mouseY = e.clientY;
-                    if (!this.isMouseActive) { this.isMouseActive = true; grad.style.opacity = '1'; animate(); }
-                    clearTimeout(this.mouseIdleTimer);
-                    this.mouseIdleTimer = setTimeout(() => { this.isMouseActive = false; grad.style.opacity = '0'; cancelAnimationFrame(this.rafId); }, 1500);
-                }, { passive: true });
+                this.initAccordion(); this.initWishlistSync(); this.initDynamicRSVP();
+                this.initAttendanceToggle(); this.initTelegramToggle(); this.initFormSubmission();
+                this.initAlcoholLogic('g1_alcohol', 'g1_drinks_input');
             }
             initNav() {
                 const nav = document.getElementById('navbar'); const links = nav.querySelectorAll('a');
-                const updateActive = () => {
-                    const sections = document.querySelectorAll('section[id]'); let current = '';
-                    sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 180) current = sec.id; });
-                    if (current && current !== this.lastActiveSection) {
-                        this.lastActiveSection = current;
-                        links.forEach(link => {
-                            const isActive = link.getAttribute('href') === `#${current}`;
-                            link.classList.toggle('active', isActive);
-                            if (isActive && window.innerWidth <= 768) setTimeout(() => link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }), 80);
-                        });
-                    }
-                };
+                const updateActive = () => { const sections = document.querySelectorAll('section[id]'); let current = ''; sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 180) current = sec.id; }); if (current && current !== this.lastActiveSection) { this.lastActiveSection = current; links.forEach(link => { const isActive = link.getAttribute('href') === `#${current}`; link.classList.toggle('active', isActive); if (isActive && window.innerWidth <= 768) setTimeout(() => link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }), 80); }); } };
                 window.addEventListener('scroll', () => { nav.classList.toggle('visible', window.scrollY > 220); updateActive(); }, { passive: true });
                 links.forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); const t = document.querySelector(link.getAttribute('href')); if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' }); }));
             }
-            initNavTheme() {
-                const nav = document.getElementById('navbar'); const dark = document.querySelectorAll('.countdown-section, .telegram-section, .rsvp-section, .footer');
-                const check = () => { const y = window.scrollY + 45; let over = false; dark.forEach(s => { if (y >= s.offsetTop && y <= s.offsetTop + s.offsetHeight) over = true; }); nav.classList.toggle('nav-over-dark', over); };
-                window.addEventListener('scroll', check, { passive: true }); check();
-            }
-            initReveal() {
-                const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-                document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
-            }
-            initCountdown() {
-                const target = new Date(2026, 8, 19, 14, 0, 0).getTime();
-                const update = () => { const d = target - Date.now(); if (d > 0) { document.getElementById('days').textContent = String(Math.floor(d/864e5)).padStart(2,'0'); document.getElementById('hours').textContent = String(Math.floor((d%864e5)/36e5)).padStart(2,'0'); document.getElementById('minutes').textContent = String(Math.floor((d%36e5)/6e4)).padStart(2,'0'); document.getElementById('seconds').textContent = String(Math.floor((d%6e4)/1e3)).padStart(2,'0'); } };
-                update(); setInterval(update, 1000);
-            }
-            async initWishlistSync() {
-                try {
-                    const res = await fetch(`${API_URL}?action=reservations`);
-                    if (!res.ok) return;
-                    const data = await res.json();
-                    const reserved = new Set(data.reserved || []);
-                    document.querySelectorAll('.reserve-btn').forEach(btn => {
-                        if (reserved.has(btn.dataset.item)) { btn.classList.add('reserved'); btn.textContent = 'Забронировано'; btn.disabled = true; }
-                    });
-                } catch (e) { console.warn('Wishlist sync failed (check API_URL):', e); }
-                document.querySelectorAll('.reserve-btn').forEach(btn => {
-                    btn.addEventListener('click', async function() {
-                        if (this.disabled) return;
-                        const item = this.dataset.item;
-                        try {
-                            await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'reserve', item, timestamp: new Date().toISOString() }) });
-                        } catch(e) {}
-                        const msg = encodeURIComponent(`Привет! Я хочу подарить вам "${item}" со свадебного вишлиста. Это ещё свободно?`);
-                        window.open(`https://t.me/+YuLqqADXO404ODIy?text=${msg}`, '_blank');
-                        this.classList.add('reserved'); this.textContent = 'Забронировано'; this.disabled = true;
-                        this.showToast(`Вы забронировали: ${item}`);
+            initNavTheme() { const nav = document.getElementById('navbar'); const dark = document.querySelectorAll('.countdown-section, .telegram-section, .rsvp-section, .footer'); const check = () => { const y = window.scrollY + 45; let over = false; dark.forEach(s => { if (y >= s.offsetTop && y <= s.offsetTop + s.offsetHeight) over = true; }); nav.classList.toggle('nav-over-dark', over); }; window.addEventListener('scroll', check, { passive: true }); check(); }
+            initReveal() { const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }); document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el)); }
+            initCountdown() { const target = new Date(2026, 8, 19, 14, 0, 0).getTime(); const update = () => { const d = target - Date.now(); if (d > 0) { document.getElementById('days').textContent = String(Math.floor(d/864e5)).padStart(2,'0'); document.getElementById('hours').textContent = String(Math.floor((d%864e5)/36e5)).padStart(2,'0'); document.getElementById('minutes').textContent = String(Math.floor((d%36e5)/6e4)).padStart(2,'0'); document.getElementById('seconds').textContent = String(Math.floor((d%6e4)/1e3)).padStart(2,'0'); } }; update(); setInterval(update, 1000); }
+            initAccordion() {
+                document.querySelectorAll('.accordion-header').forEach(header => {
+                    header.addEventListener('click', () => {
+                        const body = header.nextElementSibling;
+                        const isOpen = body.classList.contains('open');
+                        document.querySelectorAll('.accordion-body.open').forEach(b => { b.classList.remove('open'); b.previousElementSibling.classList.remove('active'); });
+                        if (!isOpen) { body.classList.add('open'); header.classList.add('active'); }
                     });
                 });
             }
-            initTelegramToggle() {
-                const cb = document.getElementById('tgLinked'); const grp = document.getElementById('tgFieldGroup');
-                if (cb && grp) cb.addEventListener('change', function() { const inp = grp.querySelector('input'); if (this.checked) { grp.style.transition = 'all 0.3s var(--ease-apple)'; grp.style.opacity = '0.2'; grp.style.pointerEvents = 'none'; inp.required = false; inp.value = ''; } else { grp.style.opacity = '1'; grp.style.pointerEvents = 'auto'; } });
+            async initWishlistSync() {
+                try { const res = await fetch(`${API_URL}?action=reservations`); if (!res.ok) return; const data = await res.json(); const reserved = new Set(data.reserved || []); document.querySelectorAll('.reserve-btn').forEach(btn => { if (reserved.has(btn.dataset.item)) { btn.classList.add('reserved'); btn.textContent = 'Забронировано'; btn.disabled = true; } }); } catch (e) { console.warn('Wishlist sync failed:', e); }
+                document.querySelectorAll('.reserve-btn').forEach(btn => { btn.addEventListener('click', async function() { if (this.disabled) return; const item = this.dataset.item; try { await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'reserve', item, timestamp: new Date().toISOString() }) }); } catch(e) {} const msg = encodeURIComponent(`Привет! Я хочу подарить вам "${item}" со свадебного вишлиста. Это ещё свободно?`); window.open(`https://t.me/+YuLqqADXO404ODIy?text=${msg}`, '_blank'); this.classList.add('reserved'); this.textContent = 'Забронировано'; this.disabled = true; this.showToast(`Вы забронировали: ${item}`); }); });
             }
-            initAttendanceToggle() {
-                const radios = document.querySelectorAll('input[name="attendance"]'); const cond = document.getElementById('conditionalFields');
-                if (!cond) return;
-                const toggle = (yes) => {
-                    if (yes) { cond.classList.remove('hidden'); cond.querySelectorAll('input, textarea').forEach(el => { if (el.dataset.wasReq) el.required = true; }); }
-                    else { cond.classList.add('hidden'); cond.querySelectorAll('input[required], textarea[required]').forEach(el => { el.dataset.wasReq = 'true'; el.required = false; }); document.getElementById('g1').checked = true; this.guestCount = 1; document.getElementById('guestPreferencesContainer').innerHTML = ''; }
-                };
-                radios.forEach(r => r.addEventListener('change', (e) => toggle(e.target.value === 'yes')));
+            initTelegramToggle() { const cb = document.getElementById('tgLinked'); const grp = document.getElementById('tgFieldGroup'); if (cb && grp) cb.addEventListener('change', function() { const inp = grp.querySelector('input'); if (this.checked) { grp.style.transition = 'all 0.3s var(--ease-apple)'; grp.style.opacity = '0.2'; grp.style.pointerEvents = 'none'; inp.required = false; inp.value = ''; } else { grp.style.opacity = '1'; grp.style.pointerEvents = 'auto'; } }); }
+            initAttendanceToggle() { const radios = document.querySelectorAll('input[name="attendance"]'); const cond = document.getElementById('conditionalFields'); if (!cond) return; const toggle = (yes) => { if (yes) { cond.classList.remove('hidden'); cond.querySelectorAll('input, textarea').forEach(el => { if (el.dataset.wasReq) el.required = true; }); } else { cond.classList.add('hidden'); cond.querySelectorAll('input[required], textarea[required]').forEach(el => { el.dataset.wasReq = 'true'; el.required = false; }); document.getElementById('g1').checked = true; this.guestCount = 1; document.getElementById('guestPreferencesContainer').innerHTML = ''; } }; radios.forEach(r => r.addEventListener('change', (e) => toggle(e.target.value === 'yes'))); }
+            initAlcoholLogic(cbId, inputId) {
+                const cb = document.getElementById(cbId); if (!cb) return;
+                cb.addEventListener('change', function() {
+                    const input = document.getElementById(inputId);
+                    if (this.checked) { input.placeholder = 'Вино, шампанское, крепкое, любимые коктейли (аллергии и еду тоже можно указать)'; input.classList.add('alcohol-highlight'); setTimeout(() => input.classList.remove('alcohol-highlight'), 2000); }
+                    else { input.placeholder = 'Любимые напитки, аллергии или ограничения в еде'; }
+                });
             }
             initDynamicRSVP() {
                 const container = document.getElementById('guestPreferencesContainer'); const radios = document.querySelectorAll('input[name="guests"]');
-                const render = (count) => { this.guestCount = count; container.innerHTML = ''; if (count <= 1) return; for (let i = 2; i <= count; i++) { const sec = document.createElement('div'); sec.className = 'form-section guest-pref-section'; sec.style.opacity = '0'; sec.style.transform = 'translateY(12px)'; sec.innerHTML = `<h3 class="form-section-title">Предпочтения гостя №${i}</h3><div class="form-group"><label>Имя и фамилия</label><input type="text" name="guest_${i}_name" placeholder="Имя Фамилия" required></div><div class="form-group"><label>Основное блюдо</label><div class="option-group"><div class="option-btn"><input type="radio" name="guest_${i}_main_dish" id="g${i}_meat" value="meat" required><label for="g${i}_meat">Мясо</label></div><div class="option-btn"><input type="radio" name="guest_${i}_main_dish" id="g${i}_fish" value="fish"><label for="g${i}_fish">Рыба</label></div><div class="option-btn"><input type="radio" name="guest_${i}_main_dish" id="g${i}_veg" value="vegetarian"><label for="g${i}_veg">Вегетарианское</label></div></div></div><div class="form-group"><label>Напитки и алкоголь</label><textarea name="guest_${i}_drinks" placeholder="Предпочтения по напиткам, аллергии"></textarea></div>`; container.appendChild(sec); requestAnimationFrame(() => { sec.style.transition = 'all 0.4s var(--ease-apple)'; sec.style.opacity = '1'; sec.style.transform = 'translateY(0)'; }); } };
+                const render = (count) => { this.guestCount = count; container.innerHTML = ''; if (count <= 1) return; for (let i = 2; i <= count; i++) { const sec = document.createElement('div'); sec.className = 'form-section guest-pref-section'; sec.style.opacity = '0'; sec.style.transform = 'translateY(12px)'; const inpId = `g${i}_drinks_input`, cbId = `g${i}_alcohol`; sec.innerHTML = `<h3 class="form-section-title">Предпочтения гостя №${i}</h3><div class="form-group"><label>Имя и фамилия гостя</label><input type="text" name="guest_${i}_name" placeholder="Имя Фамилия" required></div><div class="form-group"><label>Предпочтения</label><textarea id="${inpId}" name="guest_${i}_drinks" placeholder="Любимые напитки, аллергии или ограничения в еде"></textarea><div class="checkbox-row"><input type="checkbox" id="${cbId}" name="guest_${i}_alcohol"><label for="${cbId}">Планирую алкоголь</label></div></div>`; container.appendChild(sec); requestAnimationFrame(() => { sec.style.transition = 'all 0.4s var(--ease-apple)'; sec.style.opacity = '1'; sec.style.transform = 'translateY(0)'; }); this.initAlcoholLogic(cbId, inpId); } };
                 radios.forEach(r => r.addEventListener('change', (e) => render(parseInt(e.target.value))));
             }
             initFormSubmission() {
                 const form = document.getElementById('rsvpForm'); const btn = document.getElementById('submitBtn'); const success = document.getElementById('successMessage');
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault(); btn.disabled = true; btn.textContent = 'Отправка...';
-                    const data = Object.fromEntries(new FormData(form).entries());
-                    try {
-                        await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'rsvp', ...data, timestamp: new Date().toISOString() }) });
-                        form.style.transition = 'all 0.4s var(--ease-apple)'; form.style.opacity = '0'; form.style.transform = 'translateY(-15px)';
-                        setTimeout(() => { form.style.display = 'none'; success.classList.add('show'); this.showToast('Ваш ответ отправлен. Спасибо!'); }, 400);
-                    } catch (err) { btn.disabled = false; btn.textContent = 'Отправить ответ'; this.showToast('Ошибка отправки. Попробуйте позже или напишите нам в Telegram.'); console.error(err); }
-                });
+                form.addEventListener('submit', async (e) => { e.preventDefault(); btn.disabled = true; btn.textContent = 'Отправка...'; const data = Object.fromEntries(new FormData(form).entries()); try { await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'rsvp', ...data, timestamp: new Date().toISOString() }) }); form.style.transition = 'all 0.4s var(--ease-apple)'; form.style.opacity = '0'; form.style.transform = 'translateY(-15px)'; setTimeout(() => { form.style.display = 'none'; success.classList.add('show'); this.showToast('Ваш ответ отправлен. Спасибо!'); }, 400); } catch (err) { btn.disabled = false; btn.textContent = 'Отправить ответ'; this.showToast('Ошибка отправки. Попробуйте позже или напишите нам в Telegram.'); console.error(err); } });
             }
             showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
         }
